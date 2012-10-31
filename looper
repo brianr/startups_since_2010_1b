@@ -1,0 +1,14 @@
+#!/bin/bash
+MYSQL_URL=$1
+while true
+do
+  echo "Running..."
+  python fetch_companies.py $MYSQL_URL fetch_company_details 
+  if [ "$?" -eq 0 ]; then
+    exit 0
+  fi
+  echo "Sleeping..."
+  sleep 60
+done
+
+
